@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Project 1</title>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+        crossorigin="anonymous">
+    <link rel="stylesheet" href="main.css">
+<script>
+    function validatePassword(){
+        var password =  document.getElementById("password");
+        var confirm_password = document.getElementById("password2");
+        if(password.value != confirm_password.value) {
+          confirm_password.setCustomValidity("Passwords Don't Match");
+        } else {
+          confirm_password.setCustomValidity('');
+        }
+      }
+</script>
+</head>
+<body>
+    {% include "navbar.html"%}
+
+    {% if messages %}
+    <ul class="messages">
+    {% for message in messages %}
+    <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+    {% endfor %}
+    </ul>
+    {% endif %}
+<div class="card bg-light">
+  <article class="card-body mx-auto" style="max-width: 400px;">
+    <h4 class="card-title mt-3 text-center">CREATE ACCOUNT</h4>
+    <form action = '/join/' method='POST'>
+
+    <div class="form-group input-group">
+        <input name="fullname" class="form-control" id='fullname' placeholder="Full name" type="text">
+    </div> <!-- form-group// -->
+    {% comment %} {{ form.as_p }} {% endcomment %}
+    <div class="form-group input-group">
+        <input name="username" class="form-control" id = 'username' placeholder="Username" type="username">
+    </div> <!-- form-group// -->
+
+    <div class="form-group input-group">
+        <input class="form-control" name="password" placeholder="Create password" id = "password" type="password" required>
+    </div> <!-- form-group// -->
+    
+     <div class="form-group input-group">
+        <input class="form-control" name="password2" placeholder="Repeat password" id = "password2" type="password" required>
+    </div> <!-- form-group// -->                                
+    {% csrf_token %}
+    <div class="form-group">
+        <button type="submit" class="btn btn-primary btn-block" onclick="validatePassword()" value = "Join"> Create Account  </button>
+    </div> <!-- form-group// -->     
+    
+
+    {% comment %} <div class="form-group">
+      <button type="submit" class="btn btn-primary btn-block" value = "Join"> Create Account  </button>
+  </div> <!-- form-group// -->   {% endcomment %}
+
+
+    <p class="text-center">Already have an account? <a href="http://127.0.0.1:8000/login/">Log In</a> </p>                                                                 
+  </form>
+  </article>
+  </div> 
+  </div> 
+</body>
+</html>

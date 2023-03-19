@@ -1,0 +1,70 @@
+<!DOCTYPE html>  
+<html lang="en">  
+<head>  
+    <meta charset="UTF-8">  
+    <title>Project 1</title>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+        crossorigin="anonymous">
+    <link rel="stylesheet" href="main.css">
+    {% load static %}  
+    <link rel="stylesheet" href="{% static 'css/style.css' %}"/>  
+</head>  
+<body>  
+    {% include "navbar.html"%}
+<form method="POST" class="post-form" action="/emp" enctype="multipart/form-data">  
+        {% csrf_token %}  
+    <div class="container">  
+<br>  
+    <div class="form-group row">  
+    <label class="col-sm-1 col-form-label"></label>  
+    <div class="col-sm-4">  
+    <h3>Enter Details of the item.!</h3>  
+    </div>  
+  </div>  
+    <div class="form-group row">  
+    <label class="col-sm-2 col-form-label">Name: </label>  
+    <div class="col-sm-4">  
+      {{ form.ename}}  
+    </div>  
+  </div>  
+    <div class="form-group row">  
+    <label class="col-sm-2 col-form-label">Description: </label>  
+    <div class="col-sm-4">  
+      {{ form.edescription }}  
+    </div>  
+  </div>  
+    <div class="form-group row">  
+    <label class="col-sm-2 col-form-label">Date: </label>  
+    <div class="col-sm-4">  
+      {{ form.edate }}  
+    </div>  
+  </div>  
+    <div class="form-group row">  
+    <label class="col-sm-2 col-form-label">Approximate Value: </label>  
+    <div class="col-sm-4">  
+      {{ form.eavalue }}  
+    </div>  
+  </div> 
+    <div class="form-group row">  
+    <label class="col-sm-2 col-form-label">Insurance Value: </label>  
+    <div class="col-sm-4">  
+      {{ form.eivalue }}  
+    </div>  
+  </div>
+    <div class="form-group row">  
+    <label class="col-sm-2 col-form-label">Photo: </label>  
+    <div class="col-sm-4">  
+        {{ form.ephoto }}  
+    </div>  
+ 
+  </div>   
+    <div class="form-group row">  
+    <label class="col-sm-1 col-form-label"></label>  
+    <div class="col-sm-4">  
+    <button type="submit" class="btn btn-primary">Submit</button>  
+    </div>  
+  </div>  
+    </div>  
+</form>  
+</body>  
+</html>  

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+{%include "navbar.html"%}
+<title>Project 1</title>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+        crossorigin="anonymous">
+    <link rel="stylesheet" href="main.css">
+</head>
+<body>
+  {% if messages %}
+  <ul class="messages">
+      {% for message in messages %}
+      <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+      {% endfor %}
+  </ul>
+  {% endif %}
+      <div class="card bg-light">
+        <article class="card-body mx-auto" style="max-width: 400px;">
+          <h4 class="card-title mt-3 text-center">LOG IN ACCOUNT</h4>
+
+          <form method='POST'>
+          <div class="form-group input-group">
+            <input class="form-control" placeholder="Username" type="text"  name='username'>
+           </div> <!-- form-group// -->
+            
+           {% csrf_token %}
+
+           <div class="form-group input-group">
+            <input class="form-control" placeholder="Password" type="password" name='password'>
+           </div> <!-- form-group// -->
+            
+           <div class="form-group input-group">
+            <button type="submit" class="btn btn-primary" style = 'margin:auto' >LOG IN</button>
+           </div> <!-- form-group// -->      
+           <p class="text-center">Don't have an account? <a href="http://127.0.0.1:8000/join/">Register</a> </p>                                                                 
+        </form>
+        </article>
+        </div> 
+        </div> 
+
+</body>
+</html>
